@@ -1,0 +1,26 @@
+[project]
+authors = ["Hannah Zafar <hannah.zafar@nasa.gov>"]
+channels = ["conda-forge"]
+description = "Test for using dask with Jupyter extension"
+name = "micasa-dask"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.12.7.*"
+dask = "==2024.10.0"
+distributed = "==2024.10.0"
+ipykernel = ">=6.30.0,<7"
+xarray = ">=2025.7.1,<2026"
+numpy = "2.1.2.*"
+pandas = "2.2.3.*"
+cloudpickle = "3.1.0.*"
+tornado = "6.4.1.*"
+msgpack-python = "1.1.0.*"
+zstandard = "0.23.0.*"
+
+[tool.pixi.dependency-overrides]
+# Force exclusion of lz4 packages
+lz4 = { build = "!*" }  # Exclude all lz4 builds
